@@ -1,0 +1,30 @@
+tr{
+    text-align: center;
+}
+.input-group-prepend :disabled{
+    background-color: white;
+}
+.form-control:disabled{
+    background-color: white;
+}
+#Resultado{
+    font-size:50px;
+    text-align: center;
+}
+#ResultadoM{
+    font-size:50px;
+    text-align: center;
+}
+#ResultadoMe{
+    font-size:50px;
+    text-align: center;
+}
+#Media{
+    display: none;
+}
+#Moda{
+    display: none;
+}
+#Mediana{
+    display: none;
+}

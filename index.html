@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Calulcadora</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card mt-2">
+            <div class="card-header">
+             <h6 class="text-center">Calculadora de Media, Moda y Mediana para datos Agrupados</h6>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1"  onclick="Media()" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1">
+                                Media
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" onclick="Moda()" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">
+                                Moda
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline3" name="customRadioInline1" onclick="Mediana()" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline3">
+                                Mediana
+                            </label>
+                        </div>
+                    </li>
+                    
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control m-1" aria-label="Small" aria-describedby="inputGroup-sizing-sm" id="Secuencia", placeholder="EJEMPLO 1,1,2,3,4">
+                            </div>
+                            <div class="col-md-auto">
+                                <input type="number" class="form-control m-1" aria-label="Small" aria-describedby="inputGroup-sizing-sm" id="Intervalo" placeholder="Rango de Agrupacion">
+                            </div>
+                            <div class="col col-lg-2">
+                                <button type="button" class="btn btn-info m-1" onclick="Agrupar()">Calcular</button>
+                            </div>
+                        </div>
+                        <h6 class="text-justify">Recuerda colocar la secuencia de números separados por una coma, para de esta forma poder realizar el calculo de la forma correcta</h6>
+                    </li>
+                    <li class="list-group-item" id="Media">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">Xi</th>
+                                        <th scope="col">Fi</th>
+                                        <th scope="col">Xi.Fi</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="cuerpoTabla">
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col">
+                                <img src="Imagenes/Media Aritmetica.jpg" class="img-fluid" alt="Responsive image">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="basic-addon1">ΣFiXi</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="sumatoria" id="sumatoria" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="w-100"></div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="basic-addon1">n</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="tamanio" id="tamanio" disabled >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                      <h4>Resultado</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <input type="text" class="form-control" id="Resultado" disabled >
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item" id="Moda">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">Li</th>
+                                        <th scope="col">Ls</th>
+                                        <th scope="col">Frecuencia</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="cuerpoTablaModa">
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col">
+                                <img src="Imagenes/Moda.jpg" class="img-fluid" alt="Responsive image">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Li</span>
+                                                </div>
+                                                <input type="text" class="form-control"  id="Li" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Fi-1</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="Fi-1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">F</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="F" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Fi+1</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="Fi+1" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Ai</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="a" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                      <h4>Resultado</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <input type="text" class="form-control" id="ResultadoM" disabled >
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item" id="Mediana">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">Li</th>
+                                        <th scope="col">Ls</th>
+                                        <th scope="col">Frecuencia</th>
+                                        <th scope="col">FA</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="cuerpoTablaMediana">
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col">
+                                <img src="Imagenes/Mediana.jpg" class="img-fluid" alt="Responsive image">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Li</span>
+                                                </div>
+                                                <input type="text" class="form-control"  id="LiM" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Fi-1</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="Fi-1M" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Fi</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="FM" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Ai</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="aM" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="w-100"></div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">N</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="n" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                      <h4>Resultado</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <input type="text" class="form-control" id="ResultadoMe" disabled >
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+           </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+</html>
